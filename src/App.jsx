@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const API_URL = 'http://localhost:3001/api/books';
+const API_URL = import.meta.env.PROD 
+  ? 'https://book-library-api-production-f059.up.railway.app/api/books'
+  : 'http://localhost:3001/api/books';
 
 function App() {
   const [books, setBooks] = useState([]);
